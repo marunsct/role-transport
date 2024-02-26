@@ -6,9 +6,10 @@ using {
 } from '@sap/cds/common';
 
 entity Nodes : cuid, managed {
-  Name                  : String;
-  Appliction_Identifier : String;
-  Description           : String;
+  name                  : String;
+  appliction_identifier : String;
+  description           : String;
+  destination : Association to Destination;
 }
 
 entity Routes : cuid, managed {
@@ -40,6 +41,15 @@ entity Transports_Logs : cuid, managed {
   logs      : String;
   transport : Association to Transports;
 
+}
+
+entity Destination : cuid, managed {
+  name : String;
+  description: String;
+  url: String;
+  token_url : String;
+  client_id : String;
+  client_secret : String;  
 }
 
 type Status : String enum {
