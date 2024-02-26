@@ -1,0 +1,40 @@
+{
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.operator",
+      "description": "operator"
+    },
+    {
+      "name": "$XSAPPNAME.support",
+      "description": "support"
+    }
+  ],
+  "attributes": [
+    {
+      "name": "level",
+      "description": "level",
+      "valueType": "s",
+      "valueRequired": false
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "operator",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.operator"
+      ],
+      "attribute-references": [
+        "level"
+      ]
+    },
+    {
+      "name": "support",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.support"
+      ],
+      "attribute-references": []
+    }
+  ]
+}
