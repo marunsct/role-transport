@@ -1,8 +1,8 @@
 using role.transport as my from '../db/data-model';
 
 service TransportService
-@(restrict: [
-    { grant: 'WRITE', to: 'TR_Operator' } ])
+//@(restrict: [
+//    { grant: 'WRITE', to: 'TR_Operator' } ])
  {
 
 
@@ -16,5 +16,6 @@ service TransportService
     
     entity Transports_Logs as projection on my.Transports_Logs;
 
+    entity  Destination as projection on my.Destination;
     
 }

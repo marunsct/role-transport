@@ -1,29 +1,41 @@
 {
-  "name": "role-transport",
-  "version": "1.0.0",
-  "description": "A simple CAP project.",
-  "repository": "<Add your repository here>",
-  "license": "UNLICENSED",
-  "private": true,
-  "dependencies": {
-    "@sap/cds": "^7",
-    "@sap/cds-mtxs": "^1.9",
-    "express": "^4",
-    "@sap/cds-hana": "^2"
-  },
-  "devDependencies": {
-    "@cap-js/sqlite": "^1",
-    "@sap/cds-dk": "^7"
-  },
-  "scripts": {
-    "start": "cds-serve"
-  },
-  "cds": {
-    "requires": {
-      "extensibility": true,
-      "multitenancy": true,
-      "db": "hana"
+    "name": "role-transport",
+    "version": "1.0.0",
+    "description": "A simple CAP project.",
+    "repository": "<Add your repository here>",
+    "license": "UNLICENSED",
+    "private": true,
+    "dependencies": {
+        "@sap/cds": "^7",
+        "@sap/cds-hana": "^2",
+        "@sap/cds-mtxs": "^1.15",
+        "@sap/xssec": "^3.6.1",
+        "express": "^4",
+        "passport": "^0.7.0"
     },
-    "profile": "with-mtx-sidecar"
-  }
+    "devDependencies": {
+        "@cap-js/sqlite": "^1",
+        "@sap/cds-dk": "^7",
+        "cds-plugin-ui5": "^0.8.1",
+        "rimraf": "^5.0.5"
+    },
+    "scripts": {
+        "start": "cds-serve",
+        "watch-transport": "cds watch --open transport/index.html?sap-ui-xx-viewCache=false --livereload false",
+        "undeploy": "cf undeploy role-transport --delete-services --delete-service-keys --delete-service-brokers",
+        "build": "rimraf resources mta_archives && mbt build --mtar archive",
+        "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+    },
+    "cds": {
+        "requires": {
+            "extensibility": true,
+            "multitenancy": true,
+            "db": "hana",
+            "auth": "xsuaa"
+        },
+        "profile": "with-mtx-sidecar"
+    },
+    "workspaces": [
+        "app/*"
+    ]
 }

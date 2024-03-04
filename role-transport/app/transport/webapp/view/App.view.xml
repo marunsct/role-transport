@@ -1,0 +1,98 @@
+<mvc:View
+    controllerName="transport.controller.App"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:tnt="sap.tnt"
+    height="100%"
+>
+    <tnt:ToolPage id="toolPage">
+        <tnt:header>
+            <tnt:ToolHeader id="_IDGenToolHeader1">
+                <Button
+                    id="sideNavigationToggleButton"
+                    icon="sap-icon://menu2"
+                    type="Transparent"
+                    press=".onSideNavButtonPress"
+                >
+                    <layoutData>
+                        <OverflowToolbarLayoutData
+                            id="_IDGenOverflowToolbarLayoutData1"
+                            priority="NeverOverflow"
+                        />
+                    </layoutData>
+                </Button>
+                <ToolbarSpacer
+                    id="_IDGenToolbarSpacer1"
+                    width="20px"
+                />
+                <!--Button id="_IDGenButton8" text="Tools" type="Transparent">
+					<layoutData>
+						<OverflowToolbarLayoutData id="_IDGenOverflowToolbarLayoutData9" priority="Low" />
+					</layoutData>
+				</Button -->
+                <tnt:ToolHeaderUtilitySeparator
+                    id="_IDGenToolHeaderUtilitySeparator1"
+                />
+                <ToolbarSpacer id="_IDGenToolbarSpacer2">
+                    <layoutData>
+                        <OverflowToolbarLayoutData
+                            id="_IDGenOverflowToolbarLayoutData10"
+                            priority="NeverOverflow"
+                            minWidth="20px"
+                        />
+                    </layoutData>
+                </ToolbarSpacer>
+                <Button
+                    id="_IDGenButton9"
+                    text="Alan Smith"
+                    type="Transparent"
+                    press=".handleUserNamePress"
+                    ariaHasPopup="Menu"
+                >
+                    <layoutData>
+                        <OverflowToolbarLayoutData
+                            id="_IDGenOverflowToolbarLayoutData11"
+                            priority="NeverOverflow"
+                        />
+                    </layoutData>
+                </Button>
+            </tnt:ToolHeader>
+        </tnt:header>
+        <tnt:sideContent>
+            <tnt:SideNavigation id="_IDGenSideNavigation1"
+                expanded="true"
+                itemSelect=".onItemSelect"
+            >
+                <tnt:NavigationList id="_IDGenNavigationList1">
+                    <tnt:NavigationListItem id="_IDGenNavigationListItem1"
+                        text="{i18n>home}"
+                        icon="sap-icon://home"
+                        key="home"
+                    />
+                    <tnt:NavigationListItem id="_IDGenNavigationListItem2"
+                        text="{i18n>settings}"
+                        icon="sap-icon://action-settings"
+                    >
+                        <tnt:NavigationListItem id="_IDGenNavigationListItem3"
+                            text="{i18n>maintainDest}"
+                            key="destinations"
+                        />
+                    </tnt:NavigationListItem>
+                    <tnt:NavigationListItem id="_IDGenNavigationListItem4"
+                        text="{i18n>transport}"
+                        icon="sap-icon://shipping-status"
+                        key="transport"
+                    >
+                        <tnt:NavigationListItem id="_IDGenNavigationListItem5"
+                            text="{i18n>roleCollections}"
+                            key="rolecollections"
+                        />
+                    </tnt:NavigationListItem>
+                </tnt:NavigationList>
+            </tnt:SideNavigation>
+        </tnt:sideContent>
+        <tnt:mainContents>
+            <App id="app" />
+        </tnt:mainContents>
+    </tnt:ToolPage>
+</mvc:View>
